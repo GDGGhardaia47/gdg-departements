@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0" />
+    <title>GDG Ghardaia</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="translations/en.js"></script>
+    <script src="translations/ar.js"></script>
+</head>
+
+<body>
+
+    <!-- Background Blobs -->
+    <div class="bg-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+        <div class="blob blob-4"></div>
+    </div>
+
+    <header>
+        <button id="backBtn"
+            class="back-btn hidden"
+            data-k="back_home">← Back to
+            Home</button>
+        <button id="langBtn" class="lang-btn">EN
+            🇺🇸</button>
+    </header>
+
+    <main>
+
+        <!-- Initial View: Choose Department -->
+        <div id="home-view">
+            <div class="welcome-text">
+                <h2 data-k="welcome_title">
+                    Welcome to GDG Ghardaia
+                    Departments</h2>
+            </div>
+
+            <div class="menu-grid">
+                <div class="menu-card"
+                    data-dept="relations">
+                    <span class="icon">🤝</span>
+                    <span
+                        data-k="dept_relations">Relations</span>
+                </div>
+                <div class="menu-card"
+                    data-dept="design">
+                    <span class="icon">🎨</span>
+                    <span
+                        data-k="dept_design">Design</span>
+                </div>
+                <div class="menu-card"
+                    data-dept="dev">
+                    <span class="icon">💻</span>
+                    <span
+                        data-k="dept_dev">Development</span>
+                </div>
+                <div class="menu-card"
+                    data-dept="media">
+                    <span class="icon">📸</span>
+                    <span
+                        data-k="dept_media">Media</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dept View (Hidden by default) -->
+        <div id="dept-view" class="hidden">
+            <div id="dept-content"
+                class="content-container">
+                <!-- Injected via JS -->
+            </div>
+        </div>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
