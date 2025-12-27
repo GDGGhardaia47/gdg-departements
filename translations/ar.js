@@ -2,7 +2,7 @@ window.GDG_TRANSLATIONS = window.GDG_TRANSLATIONS || {};
 
 window.GDG_TRANSLATIONS.ar = {
     title: "GDG Ghardaia",
-    welcome_title: "مرحباً بكم في أقسام النادي",
+    welcome_title: "مرحباً بكم في فرق نادي مجموعة مطوري جووجل غرداية",
 
     // Departments
     dept_relations: "العلاقات",
@@ -16,7 +16,7 @@ window.GDG_TRANSLATIONS.ar = {
     // Labels
     label_tools: "التقنيات/الأدوات:",
     label_install: "التثبيت:",
-    label_content: "محتوى التدريب:",
+    label_content: "المحتوى:",
 
     // Relations Content
     relations_title: "🤝 قسم العلاقات",

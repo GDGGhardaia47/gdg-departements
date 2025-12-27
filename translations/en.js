@@ -2,7 +2,7 @@ window.GDG_TRANSLATIONS = window.GDG_TRANSLATIONS || {};
 
 window.GDG_TRANSLATIONS.en = {
     title: "GDG Ghardaia",
-    welcome_title: "Welcome to GDG Training",
+    welcome_title: "Welcome to GDG Ghardaia Teams",
 
 
     // Departments
@@ -17,7 +17,7 @@ window.GDG_TRANSLATIONS.en = {
     // Labels
     label_tools: "Technology/Tools:",
     label_install: "Installations:",
-    label_content: "Training Content:",
+    label_content: "Content:",
 
     // Relations Content
     relations_title: "🤝 Relations Department",
