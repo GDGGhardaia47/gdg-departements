@@ -172,7 +172,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Construct HTML
     let html = `
       <div class="dept-header">
-        <h2 style="color: ${color}">${data[titleKey] || ""}</h2>
+        <h1 style="color: ${color}">${data[titleKey] || ""}</h1>
         <p>${data[introKey] || ""}</p>
       </div>
       <div class="cards-grid">

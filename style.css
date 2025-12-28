@@ -280,7 +280,7 @@ main {
   z-index: 50;
   display: flex;
   flex-direction: column;
-  padding: 20px;
+  padding: 100px 20px 20px 20px; /* Top padding clears fixed header */
   overflow-y: auto;
   opacity: 0;
   pointer-events: none;
@@ -306,9 +306,11 @@ main {
   border-bottom: 1px solid var(--card-border);
 }
 
+.dept-header h1, 
 .dept-header h2 {
-  font-size: 2rem;
+  font-size: 2.5rem; /* Larger for main title */
   color: var(--google-blue); /* Default override by inline JS */
+  margin-bottom: 10px;
 }
 
 .dept-header p {
