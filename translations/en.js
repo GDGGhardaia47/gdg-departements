@@ -12,7 +12,7 @@ window.GDG_TRANSLATIONS.en = {
     dept_media: "Media",
 
     // Back Button
-    back_home: "← Back to Home",
+    back_home: "<span class='material-symbols-outlined'>arrow_back</span> Back to Home",
 
     // Labels
     label_tools: "Technology/Tools:",
@@ -20,7 +20,7 @@ window.GDG_TRANSLATIONS.en = {
     label_content: "Content:",
 
     // Relations Content
-    relations_title: "🤝 Relations Department",
+    relations_title: "<span class='material-symbols-outlined'>handshake</span> Relations Department",
     rel_s1_t: "Section 1: External Relations",
     rel_s1_tools: "Google Workspace",
     rel_s1_install: "None (browser-based)",
@@ -40,7 +40,7 @@ window.GDG_TRANSLATIONS.en = {
     rel_s3_goal: "Goal: Create detailed event plans including checklists and timelines. Effectively coordinate all logistical aspects. Create a template for each form needed.",
 
     // Design Content
-    design_title: "🎨 Design Department",
+    design_title: "<span class='material-symbols-outlined'>palette</span> Design Department",
     des_s1_t: "Section 1: General Design",
     des_s1_tools: "Figma",
     des_s1_install: "Download Figma (desktop or browser)",
@@ -60,7 +60,7 @@ window.GDG_TRANSLATIONS.en = {
     des_s3_goal: "Goal: Be able to design professional social media visuals and branding material.",
 
     // Development Content
-    dev_title: "💻 Development Department",
+    dev_title: "<span class='material-symbols-outlined'>terminal</span> Development Department",
     dev_s1_t: "Section 1: General Development",
     dev_s1_tools: "Git, GitHub",
     dev_s1_install: "Git, GitHub Desktop, VS Code",
@@ -86,7 +86,7 @@ window.GDG_TRANSLATIONS.en = {
     dev_s4_goal: "Goal: Strengthen algorithmic thinking and problem-solving skills.",
 
     // Media Content
-    media_title: "📸 Media Department",
+    media_title: "<span class='material-symbols-outlined'>photo_camera</span> Media Department",
     med_s1_t: "Section 1: General Media",
     med_s1_tools: "Photoshop, Canva, Premiere Pro/CapCut",
     med_s1_install: "Canva app, Adobe Suite / CapCut",

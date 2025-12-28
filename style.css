@@ -63,6 +63,9 @@ header {
     cursor: pointer;
     font-family: inherit;
     transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
 /* Force lang button to stay on right even in RTL */
@@ -345,4 +348,29 @@ html[dir="rtl"] .goal {
         display: block;
         margin-bottom: 2px;
     }
+}
+
+/* Material Symbols Outlined Utility */
+.material-symbols-outlined {
+    font-family: 'Material Symbols Outlined';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    /* Preferred icon size */
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: 'liga';
+}
+
+/* Ensure menu card icons are larger */
+.menu-card .material-symbols-outlined {
+    font-size: 2rem;
 }

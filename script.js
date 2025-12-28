@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
 
         // Update Button
-        if (els.langBtn) els.langBtn.innerText = lang === 'en' ? 'EN 🇺🇸' : 'AR 🇩🇿';
+        if (els.langBtn) els.langBtn.innerHTML = lang === 'en' ? 'EN <span class="material-symbols-outlined">language</span>' : 'AR <span class="material-symbols-outlined">language</span>';
 
         // Update Static Text
         document.querySelectorAll('[data-k]').forEach(el => {

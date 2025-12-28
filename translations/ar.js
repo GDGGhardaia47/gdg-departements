@@ -11,7 +11,7 @@ window.GDG_TRANSLATIONS.ar = {
     dept_media: "الميديا",
 
     // Back Button
-    back_home: "العودة للرئيسية ←",
+    back_home: "العودة للرئيسية <span class='material-symbols-outlined'>arrow_back</span>",
 
     // Labels
     label_tools: "التقنيات/الأدوات:",
@@ -19,7 +19,7 @@ window.GDG_TRANSLATIONS.ar = {
     label_content: "المحتوى:",
 
     // Relations Content
-    relations_title: "🤝 قسم العلاقات",
+    relations_title: "<span class='material-symbols-outlined'>handshake</span> قسم العلاقات",
     rel_s1_t: "القسم 1: العلاقات الخارجية",
     rel_s1_tools: "Google Workspace",
     rel_s1_install: "لا يوجد (عبر المتصفح)",
@@ -39,7 +39,7 @@ window.GDG_TRANSLATIONS.ar = {
     rel_s3_goal: "الهدف: إنشاء خطط مفصلة للحدث بما في ذلك قوائم المراجعة والجداول الزمنية. تنسيق جميع الجوانب اللوجستية بكفاءة. إنشاء قالب لكل نموذج مطلوب.",
 
     // Design Content
-    design_title: "🎨 قسم التصميم",
+    design_title: "<span class='material-symbols-outlined'>palette</span> قسم التصميم",
     des_s1_t: "القسم 1: التصميم العام",
     des_s1_tools: "Figma",
     des_s1_install: "تنزيل Figma (سطح المكتب أو المتصفح)",
@@ -59,7 +59,7 @@ window.GDG_TRANSLATIONS.ar = {
     des_s3_goal: "الهدف: القدرة على تصميم صور احترافية لوسائل التواصل الاجتماعي ومواد العلامة التجارية.",
 
     // Development Content
-    dev_title: "💻 قسم التطوير",
+    dev_title: "<span class='material-symbols-outlined'>terminal</span> قسم التطوير",
     dev_s1_t: "القسم 1: التطوير العام",
     dev_s1_tools: "Git, GitHub",
     dev_s1_install: "Git, GitHub Desktop, VS Code",
@@ -85,7 +85,7 @@ window.GDG_TRANSLATIONS.ar = {
     dev_s4_goal: "الهدف: تعزيز التفكير الخوارزمي ومهارات حل المشكلات.",
 
     // Media Content
-    media_title: "📸 قسم الميديا",
+    media_title: "<span class='material-symbols-outlined'>photo_camera</span> قسم الميديا",
     med_s1_t: "القسم 1: الميديا العامة",
     med_s1_tools: "Photoshop, Canva, Premiere Pro/CapCut",
     med_s1_install: "تطبيق Canva، Adobe Suite / CapCut",
