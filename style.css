@@ -1,376 +1,529 @@
-@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&family=Google+Sans:wght@400;500;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&family=Google+Sans:wght@400;500;700&display=swap");
 
 :root {
-    --google-blue: #4285F4;
-    --google-red: #EA4335;
-    --google-yellow: #FBBC05;
-    --google-green: #34A853;
-    --bg: #101010;
-    --card-bg: rgba(255, 255, 255, 0.05);
-    --card-border: rgba(255, 255, 255, 0.1);
-    --text-main: #ffffff;
-    --text-muted: #9aa0a6;
-    --glass: blur(20px);
+  /* Brand Colors */
+  --google-blue: #4285f4;
+  --google-red: #ea4335;
+  --google-yellow: #fbbc05;
+  --google-green: #34a853;
+  --google-purple: #A142F4;
+  
+  /* Theme Colors */
+  --bg: #101010;
+  --card-bg: rgba(255, 255, 255, 0.05);
+  --card-border: rgba(255, 255, 255, 0.1);
+  --text-main: #ffffff;
+  --text-muted: #9aa0a6;
+  
+  /* Effects */
+  --glass: blur(20px);
 }
 
+/* =========================================
+   Global Reset & Body
+   ========================================= */
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-    background: var(--bg);
-    color: var(--text-main);
-    font-family: 'Google Sans', sans-serif;
-    overflow-x: hidden;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
+  background: var(--bg);
+  color: var(--text-main);
+  font-family: "Google Sans", sans-serif;
+  overflow-x: hidden;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 html[dir="rtl"] body {
-    font-family: 'Cairo', sans-serif;
+  font-family: "Cairo", sans-serif;
+  line-height: 1.3;
 }
 
-/* Animated Background */
-/* Background removed */
-.bg-blobs {
-    display: none;
+/* =========================================
+   Utilities
+   ========================================= */
+.hidden {
+  display: none !important;
 }
 
-/* Header */
-/* Header */
+.material-symbols-outlined {
+  font-family: "Material Symbols Outlined";
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "liga";
+}
+
+/* =========================================
+   Header
+   ========================================= */
+/* =========================================
+   Header
+   ========================================= */
 header {
-    height: 80px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    z-index: 100;
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid var(--card-border);
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed; /* Fixed position */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--card-border);
+  background: rgba(16, 16, 16, 0.8); /* Semi-transparent bg for readability */
 }
 
+
+.lang-btn, .back-btn {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--card-border);
+  color: var(--text-main);
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Language Button */
 .lang-btn {
-    position: absolute;
-    right: 20px;
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid var(--card-border);
-    color: white;
-    padding: 8px 16px;
-    border-radius: 20px;
-    cursor: pointer;
-    font-family: inherit;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-/* Force lang button to stay on right even in RTL */
-html[dir="rtl"] .lang-btn {
-    right: 20px;
-    left: auto;
+  position: absolute;
+  right: 20px;
+  padding: 8px 16px;
+  border-radius: 20px;
 }
 
 .lang-btn:hover {
-    background: rgba(255, 255, 255, 0.2);
-    transform: scale(1.05);
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.05);
 }
 
-.lang-btn:hover {
-    background: rgba(255, 255, 255, 0.2);
-    transform: scale(1.05);
-}
-
-/* Main Area */
-main {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    position: relative;
-}
-
-/* Home / Selection View */
-#home-view {
-    text-align: center;
-    width: 100%;
-    max-width: 800px;
-    transition: opacity 0.5s ease, transform 0.5s ease;
-}
-
-.welcome-text h2 {
-    font-size: 2.5rem;
-    margin-bottom: 60px;
-    color: var(--text-main);
-}
-
-
-.menu-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-    gap: 20px;
-}
-
-.menu-card {
-    background: var(--card-bg);
-    border: 1px solid var(--card-border);
-    border-radius: 20px;
-    padding: 30px 20px;
-    cursor: pointer;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
-}
-
-.menu-card:hover {
-    transform: translateY(-10px);
-    background: rgba(255, 255, 255, 0.1);
-    border-color: rgba(255, 255, 255, 0.3);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-}
-
-.icon {
-    font-size: 2rem;
-}
-
-.menu-card:nth-child(1):hover {
-    border-color: var(--google-blue);
-}
-
-.menu-card:nth-child(2):hover {
-    border-color: var(--google-red);
-}
-
-.menu-card:nth-child(3):hover {
-    border-color: var(--google-yellow);
-}
-
-.menu-card:nth-child(4):hover {
-    border-color: var(--google-green);
-}
-
-/* Department View */
-#dept-view {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: var(--bg);
-    z-index: 50;
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-    overflow-y: auto;
-    opacity: 0;
-    pointer-events: none;
-    transform: scale(0.95);
-    transition: opacity 0.4s ease, transform 0.4s ease;
-}
-
-#dept-view.active {
-    opacity: 1;
-    pointer-events: auto;
-    transform: scale(1);
-}
-
+/* Back Button */
 .back-btn {
-    position: absolute;
-    left: 20px;
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid var(--card-border);
-    color: var(--text-main);
-    padding: 10px 20px;
-    border-radius: 30px;
-    cursor: pointer;
-    font-size: 1rem;
-    font-family: inherit;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-weight: 500;
+  position: absolute;
+  left: 20px;
+  padding: 10px 20px;
+  border-radius: 30px;
+  font-size: 1rem;
+  font-weight: 500;
+  overflow: hidden; /* For pulse effect */
 }
 
 .back-btn:hover {
-    background: rgba(255, 255, 255, 0.2);
-    transform: translateX(5px);
-    border-color: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
 }
 
-/* RTL Support for Back Button */
-html[dir="rtl"] .back-btn {
-    left: 20px;
-    right: auto;
-    /* Ensure it stays on left */
+.back-btn:not(.hidden) {
+    animation: slideInBackBtn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) backwards;
 }
 
-/* Flip the arrow action in RTL naturally by swapping text in translation, 
-   but ensuring the hover float direction makes sense */
-html[dir="rtl"] .back-btn:hover {
-    transform: translateX(-5px);
-    /* Move leftwards on hover in RTL context if arrow points right */
+/* Arrow Animation on Hover */
+@keyframes pointLeft {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(-4px); }
+}
+
+.back-btn:hover .material-symbols-outlined {
+    animation: pointLeft 1s infinite ease-in-out;
+}
+
+
+/* =========================================
+   Main Views
+   ========================================= */
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  padding-top: 100px; /* Offset for fixed header */
+  position: relative;
+  width: 100%;
+  min-height: 100vh; /* Ensure full height scroll */
+}
+
+/* Transition States */
+.content-transition {
+    transition: opacity 0.3s ease, transform 0.3s ease, filter 0.3s ease;
+}
+
+.content-transition.fading-out {
+    opacity: 0;
+    transform: translateY(10px);
+    filter: blur(4px);
+}
+
+/* --- Home View --- */
+#home-view {
+  text-align: center;
+  width: 100%;
+  max-width: 800px;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.welcome-text h2 {
+  font-size: 2.5rem;
+  margin-bottom: 60px;
+  color: var(--text-main);
+}
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 20px;
+}
+
+/* Menu Cards */
+.menu-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 20px;
+  padding: 30px 20px;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  position: relative;
+  overflow: hidden;
+  animation: fadeInCard 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) backwards;
+}
+
+.menu-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  background: rgba(255, 255, 255, 0.08); 
+}
+
+.menu-card:active {
+  transform: scale(0.95);
+  transition-duration: 0.1s;
+}
+
+.icon {
+  font-size: 2.5rem;
+  transition: transform 0.5s ease;
+}
+
+.menu-card:hover .icon {
+  transform: scale(1.2) rotate(5deg);
+}
+
+/* --- Department Colors & Specifics --- */
+
+/* Relations (Yellow) */
+.menu-card:nth-child(1) { animation-delay: 0.1s; }
+.menu-card:nth-child(1) .icon,
+.menu-card:nth-child(1) span { color: var(--google-yellow); }
+.menu-card:nth-child(1):hover {
+    border-color: var(--google-yellow);
+    background: rgba(251, 188, 5, 0.15);
+    box-shadow: 0 15px 35px rgba(251, 188, 5, 0.2);
+}
+
+/* Media (Blue) */
+.menu-card:nth-child(2) { animation-delay: 0.2s; }
+.menu-card:nth-child(2) .icon,
+.menu-card:nth-child(2) span { color: var(--google-blue); }
+.menu-card:nth-child(2):hover {
+    border-color: var(--google-blue);
+    background: rgba(66, 133, 244, 0.15);
+    box-shadow: 0 15px 35px rgba(66, 133, 244, 0.2);
+}
+
+/* Design (Green) */
+.menu-card:nth-child(3) { animation-delay: 0.3s; }
+.menu-card:nth-child(3) .icon,
+.menu-card:nth-child(3) span { color: var(--google-green); }
+.menu-card:nth-child(3):hover {
+    border-color: var(--google-green);
+    background: rgba(52, 168, 83, 0.15);
+    box-shadow: 0 15px 35px rgba(52, 168, 83, 0.2);
+}
+
+/* Dev (Purple) */
+.menu-card:nth-child(4) { animation-delay: 0.4s; }
+.menu-card:nth-child(4) .icon,
+.menu-card:nth-child(4) span { color: var(--google-purple); }
+.menu-card:nth-child(4):hover {
+    border-color: var(--google-purple);
+    background: rgba(161, 66, 244, 0.15);
+    box-shadow: 0 15px 35px rgba(161, 66, 244, 0.2);
+}
+
+/* --- Department View --- */
+#dept-view {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--bg);
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  overflow-y: auto;
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(0.95);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+#dept-view.active {
+  opacity: 1;
+  pointer-events: auto;
+  transform: scale(1);
 }
 
 .content-container {
-    max-width: 900px;
-    margin: 0 auto 50px;
-    width: 100%;
+  max-width: 900px;
+  margin: 0 auto 50px;
+  width: 100%;
 }
 
 .dept-header {
-    margin-bottom: 30px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid var(--card-border);
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--card-border);
 }
 
 .dept-header h2 {
-    font-size: 2rem;
-    color: var(--google-blue);
+  font-size: 2rem;
+  color: var(--google-blue); /* Default override by inline JS */
+}
+
+.dept-header p {
+  font-size: 1.1rem;
+  max-width: 800px;
+  margin-top: 15px;
+  color: #b0b0b0;
 }
 
 .cards-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    /* Full width for content */
-    gap: 20px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
 }
 
+/* Info Cards */
 .info-card {
-    background: var(--card-bg);
-    border: 1px solid var(--card-border);
-    padding: 25px;
-    border-radius: 16px;
-    animation: slideUp 0.6s ease forwards;
-    opacity: 0;
-    transform: translateY(20px);
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  padding: 25px;
+  border-radius: 16px;
+  animation: slideUp 0.6s ease forwards;
+  opacity: 0;
+  transform: translateY(20px);
 }
 
 .info-card h3 {
-    margin-bottom: 15px;
-    color: #fff;
-    font-size: 1.3rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    padding-bottom: 8px;
+  margin-bottom: 15px;
+  color: #fff;
+  font-size: 1.3rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 8px;
 }
 
-.meta {
-    list-style: none;
-    padding: 0;
-    margin: 10px 0;
+/* Stagger Animations */
+.info-card:nth-child(1) { animation-delay: 0.1s; }
+.info-card:nth-child(2) { animation-delay: 0.2s; }
+.info-card:nth-child(3) { animation-delay: 0.3s; }
+.info-card:nth-child(4) { animation-delay: 0.4s; }
+
+/* Content Styling */
+.card-content {
+  color: var(--text-muted);
+  line-height: 1.7;
+  font-size: 1rem;
 }
 
-.meta li {
-    margin-bottom: 10px;
-    color: var(--text-muted);
-    font-size: 0.95rem;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 5px;
+.card-content ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 15px;
 }
 
-.meta b {
-    color: var(--google-blue);
-    font-weight: 500;
-    min-width: 150px;
+.card-content li {
+  margin-bottom: 12px;
+  padding-left: 20px;
+  position: relative;
+  display: block;
 }
 
-/* Specific colors for department details */
-.info-card:nth-child(2) .meta b {
-    color: var(--google-red);
+/* Custom Bullet Points */
+.card-content li::before {
+  content: "•";
+  color: var(--dept-accent, var(--google-blue));
+  font-weight: bold;
+  font-size: 1.2rem;
+  position: absolute;
+  left: 0;
+  top: -2px;
 }
 
-.goal {
-    background: rgba(52, 168, 83, 0.1);
-    border-left: 4px solid var(--google-green);
-    padding: 12px 16px;
-    border-radius: 8px;
-    margin-top: 20px;
-    color: #81c995;
-    font-style: italic;
-    font-size: 0.95rem;
+.card-content b, .card-content strong {
+  color: #fff;
+  font-weight: 600;
 }
 
-html[dir="rtl"] .goal {
-    border-left: none;
-    border-right: 4px solid var(--google-green);
+/* --- Specific Card Types --- */
+
+/* Track Cards */
+.card-track {
+  border-left: 4px solid var(--dept-accent, var(--card-border));
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.06) 100%);
+  position: relative;
+  overflow: hidden;
 }
 
-/* Utilities */
-.hidden {
-    display: none !important;
+/* Tools Cards */
+.card-tools ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding-left: 0;
 }
 
-/* Animations */
+.card-tools li {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 6px 14px;
+  border-radius: 20px;
+  margin: 0;
+  font-size: 0.9rem;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.card-tools li::before {
+  display: none;
+}
+
+.card-tools li:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Foundation/Learn/Career Headers */
+.card-foundation h3, .card-learn h3, .card-career h3 {
+  border-bottom-style: dashed;
+}
+
+/* =========================================
+   Animations
+   ========================================= */
+@keyframes fadeInCard {
+    from { opacity: 0; transform: translateY(30px) scale(0.9); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
 @keyframes slideUp {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-/* Stagger Animations via JS or nth-child */
-.info-card:nth-child(1) {
-    animation-delay: 0.1s;
+@keyframes slideInBackBtn {
+    from { opacity: 0; transform: translateX(-30px); }
+    to { opacity: 1; transform: translateX(0); }
 }
 
-.info-card:nth-child(2) {
-    animation-delay: 0.2s;
+/* =========================================
+   RTL Support (Arabic)
+   ========================================= */
+html[dir="rtl"] .lang-btn {
+  right: 20px;
+  left: auto;
 }
 
-.info-card:nth-child(3) {
-    animation-delay: 0.3s;
+html[dir="rtl"] .back-btn {
+  left: 20px;
+  right: auto;
 }
 
-.info-card:nth-child(4) {
-    animation-delay: 0.4s;
+html[dir="rtl"] .back-btn:hover {
+  transform: translateX(-5px);
 }
 
-/* Responsive */
+html[dir="rtl"] .card-content li {
+    padding-left: 0;
+    padding-right: 20px;
+}
+
+html[dir="rtl"] .card-content li::before {
+    left: auto;
+    right: 0;
+}
+
+html[dir="rtl"] .card-track {
+    border-left: none;
+    border-right: 4px solid var(--dept-accent, var(--card-border));
+    background: linear-gradient(-145deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.06) 100%);
+}
+
+html[dir="rtl"] .card-tools ul {
+    padding-right: 0;
+}
+
+html[dir="rtl"] .card-tools li {
+    padding: 6px 14px;
+    padding-right: 14px;
+}
+
+/* RTL Back Button Entrance */
+@keyframes slideInBackBtnRTL {
+    from { opacity: 0; transform: translateX(30px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+html[dir="rtl"] .back-btn:not(.hidden) {
+    animation-name: slideInBackBtnRTL;
+}
+
+html[dir="rtl"] .menu-card,
+html[dir="rtl"] button,
+html[dir="rtl"] .lang-btn,
+html[dir="rtl"] .back-btn {
+    line-height: 1.2;
+}
+
+/* =========================================
+   Responsive Design
+   ========================================= */
 @media (max-width: 600px) {
-    .welcome-text h2 {
-        font-size: 1.8rem;
-    }
+  .welcome-text h2 {
+    font-size: 1.8rem;
+  }
+  
+  .dept-header h2 {
+    font-size: 1.8rem;
+  }
 
-    .menu-grid {
-        grid-template-columns: 1fr;
-    }
+  .menu-grid {
+    grid-template-columns: 1fr;
+  }
 
-    .meta b {
-        width: 100%;
-        display: block;
-        margin-bottom: 2px;
-    }
-}
-
-/* Material Symbols Outlined Utility */
-.material-symbols-outlined {
-    font-family: 'Material Symbols Outlined';
-    font-weight: normal;
-    font-style: normal;
-    font-size: 24px;
-    /* Preferred icon size */
-    display: inline-block;
-    line-height: 1;
-    text-transform: none;
-    letter-spacing: normal;
-    word-wrap: normal;
-    white-space: nowrap;
-    direction: ltr;
-    -webkit-font-smoothing: antialiased;
-    text-rendering: optimizeLegibility;
-    -moz-osx-font-smoothing: grayscale;
-    font-feature-settings: 'liga';
-}
-
-/* Ensure menu card icons are larger */
-.menu-card .material-symbols-outlined {
-    font-size: 2rem;
+  .info-card {
+    padding: 20px;
+  }
 }

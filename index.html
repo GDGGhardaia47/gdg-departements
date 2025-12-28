@@ -3,36 +3,31 @@
 
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport"
-        content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>GDG Ghardaia</title>
+    <!-- Fonts -->
     <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&display=swap" />
+    <!-- Styles -->
     <link rel="stylesheet" href="style.css">
-    <script src="translations/en.js"></script>
-    <script src="translations/ar.js"></script>
+    <!-- Translations -->
+    <script src="translations/en.js" defer></script>
+    <script src="translations/ar.js" defer></script>
+    <!-- Logic -->
+    <script src="script.js" defer></script>
 </head>
 
 <body>
 
-    <!-- Background Blobs -->
-    <div class="bg-blobs">
-        <div class="blob blob-1"></div>
-        <div class="blob blob-2"></div>
-        <div class="blob blob-3"></div>
-        <div class="blob blob-4"></div>
-    </div>
-
     <header>
-        <button id="backBtn"
-            class="back-btn hidden"
-            data-k="back_home"><span
-                class="material-symbols-outlined">arrow_back</span>
-            Back to
-            Home</button>
-        <button id="langBtn" class="lang-btn">EN
-            <span
-                class="material-symbols-outlined">language</span></button>
+        <button id="backBtn" class="back-btn hidden" data-k="back_home" aria-label="Back to Home">
+            <span class="material-symbols-outlined" aria-hidden="true">arrow_back</span>
+            Back to Home
+        </button>
+        <button id="langBtn" class="lang-btn" aria-label="Toggle Language">
+            EN
+            <span class="material-symbols-outlined" aria-hidden="true">language</span>
+        </button>
     </header>
 
     <main>
@@ -40,52 +35,45 @@
         <!-- Initial View: Choose Department -->
         <div id="home-view">
             <div class="welcome-text">
-                <h2 data-k="welcome_title">Welcome to GDG Ghardaia Departments</h2>
+                <h2 data-k="welcome_title">Welcome to GDG Ghardaia Teams</h2>
             </div>
 
             <div class="menu-grid">
-                <div class="menu-card"
-                    data-dept="relations">
-                    <span
-                        class="icon material-symbols-outlined">handshake</span>
-                    <span
-                        data-k="dept_relations">Relations</span>
+                <!-- Relations -->
+                <div class="menu-card" data-dept="relations" role="button" tabindex="0">
+                    <span class="icon material-symbols-outlined">handshake</span>
+                    <span data-k="dept_relations">Relations</span>
                 </div>
-                <div class="menu-card"
-                    data-dept="design">
-                    <span
-                        class="icon material-symbols-outlined">palette</span>
-                    <span
-                        data-k="dept_design">Design</span>
+                
+                <!-- Media -->
+                <div class="menu-card" data-dept="media" role="button" tabindex="0">
+                    <span class="icon material-symbols-outlined">photo_camera</span>
+                    <span data-k="dept_media">Media</span>
                 </div>
-                <div class="menu-card"
-                    data-dept="dev">
-                    <span
-                        class="icon material-symbols-outlined">terminal</span>
-                    <span
-                        data-k="dept_dev">Development</span>
+
+                <!-- Design -->
+                <div class="menu-card" data-dept="design" role="button" tabindex="0">
+                    <span class="icon material-symbols-outlined">palette</span>
+                    <span data-k="dept_design">Design</span>
                 </div>
-                <div class="menu-card"
-                    data-dept="media">
-                    <span
-                        class="icon material-symbols-outlined">photo_camera</span>
-                    <span
-                        data-k="dept_media">Media</span>
+                
+                <!-- Development -->
+                <div class="menu-card" data-dept="dev" role="button" tabindex="0">
+                    <span class="icon material-symbols-outlined">terminal</span>
+                    <span data-k="dept_dev">Development</span>
                 </div>
             </div>
         </div>
 
         <!-- Dept View (Hidden by default) -->
-        <div id="dept-view" class="hidden">
-            <div id="dept-content"
-                class="content-container">
+        <div id="dept-view" class="hidden" aria-live="polite">
+            <div id="dept-content" class="content-container">
                 <!-- Injected via JS -->
             </div>
         </div>
 
     </main>
 
-    <script src="script.js"></script>
 </body>
 
 </html>
