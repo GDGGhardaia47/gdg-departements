@@ -59,8 +59,8 @@ document.addEventListener("DOMContentLoaded", () => {
     // Update Language Button
     if (els.langBtn) {
       els.langBtn.innerHTML = lang === "en"
-        ? 'EN <span class="material-symbols-outlined">language</span>'
-        : '<span class="material-symbols-outlined">language</span> AR';
+        ? 'AR <span class="material-symbols-outlined">language</span>'
+        : '<span class="material-symbols-outlined">language</span> EN';
     }
 
     // Update Static Text Elements
